@@ -13,7 +13,7 @@ for archivo in directorio:
         n_lineas = f_read.readlines()
         with open('C:/Users/hxh_1/Desktop/elementos_prueba/conjunto_campo_electrico', 'a', encoding='UTF-8') as f_write:
             for linea in range(len(n_lineas)):
-                linea_n = linea.replace(',0',',correcto').replace(',1',',fallo').replace('+', 'positivo,').replace('-', 'negativo,')
+                linea_n = n_lineas[linea].replace(',0',',correcto').replace(',1',',fallo').replace('+', 'positivo,').replace('-', 'negativo,')
                 f_write.write(fecha+linea_n)
 
 #with open('C:/Users/hxh_1/Desktop/elementos_prueba/conjunto_campo_electrico', 'w', encoding='UTF-8') as w:
