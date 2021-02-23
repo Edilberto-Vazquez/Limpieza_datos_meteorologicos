@@ -12,6 +12,7 @@ for archivo in directorio:
     with open(archivo, 'r', encoding='UTF-8') as f_read:
         n_lineas = f_read.readlines()
         with open('C:/Users/hxh_1/Desktop/elementos_prueba/conjunto_campo_electrico.csv', 'a', encoding='UTF-8') as f_write:
+            f_write.write('Fecha, Polaridad, NivelCE, FalloRotor')
             for linea in range(len(n_lineas)):
                 linea_n = n_lineas[linea].replace(',0',',correcto').replace(',1',',fallo').replace('+', 'positivo,').replace('-', 'negativo,')
                 f_write.write(fecha+' '+linea_n)
