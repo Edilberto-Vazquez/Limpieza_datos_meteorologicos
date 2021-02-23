@@ -11,10 +11,10 @@ for archivo in directorio:
     fecha = fecha[4:]+"-"+fecha[0:2]+"-"+fecha[2:4]
     with open(archivo, 'r', encoding='UTF-8') as f_read:
         n_lineas = f_read.readlines()
-        with open('C:/Users/hxh_1/Desktop/elementos_prueba/conjunto_campo_electrico', 'a', encoding='UTF-8') as f_write:
+        with open('C:/Users/hxh_1/Desktop/elementos_prueba/conjunto_campo_electrico.csv', 'a', encoding='UTF-8') as f_write:
             for linea in range(len(n_lineas)):
                 linea_n = n_lineas[linea].replace(',0',',correcto').replace(',1',',fallo').replace('+', 'positivo,').replace('-', 'negativo,')
-                f_write.write(fecha+linea_n)
+                f_write.write(fecha+' '+linea_n)
 
 #with open('C:/Users/hxh_1/Desktop/elementos_prueba/conjunto_campo_electrico', 'w', encoding='UTF-8') as w:
 
