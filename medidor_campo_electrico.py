@@ -6,7 +6,7 @@ import threading
 import time
 
 
-directorio = glob.glob('D:/Tesis/Medidor_parque/*.efm')
+directorio = glob.glob('/media/edilberto/Almacenamiento/Archivos/DataSets/Tesis/Datos_Originales/Medidor_Campo_Electrico/*.efm')
 
 #print(directorio)
 
@@ -18,7 +18,7 @@ def concat_fecha(directorio):
         fecha = f'{fecha[4:]}-{fecha[0:2]}-{fecha[2:4]}'
         with open(archivo, 'r', encoding='UTF-8') as f_read:
             n_lineas = f_read.readlines()
-            with open(f'E:/Datos_tratados/Conjuntos_datos_meteorologicos/{fecha}.csv', 'a', encoding='UTF-8') as f_write:
+            with open(f'/media/edilberto/Almacenamiento/Archivos/DataSets/Tesis/Datos_Procesados/Medidor_Campo_Electrico/{fecha}.csv', 'a', encoding='UTF-8') as f_write:
                 f_write.write('Fecha, Polaridad, NivelCE, FalloRotor\n')
                 for linea in n_lineas:
                     linea_n = linea.replace(',0',',correcto').replace(',1',',fallo').replace('+', 'positivo,').replace('-', 'negativo,')
