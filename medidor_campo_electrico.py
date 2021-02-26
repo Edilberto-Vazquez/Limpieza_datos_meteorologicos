@@ -6,19 +6,19 @@ import threading
 import time
 
 
-directorio = glob.glob('/media/edilberto/Almacenamiento/Archivos/DataSets/Tesis/Datos_Originales/Medidor_Campo_Electrico/*.efm')
+directorio = glob.glob('F:/Archivos/DataSets/Tesis/Datos_Originales/Medidor_Campo_Electrico/*.efm')
 
-#print(directorio)
+print(directorio)
 
 def concat_fecha(directorio):
     directorio = [directorio]
     for archivo in directorio:
         fecha = os.path.basename(archivo).lstrip("INAOE parque-").rstrip(".efm")
-        fecha = fecha[4:]+"-"+fecha[0:2]+"-"+fecha[2:4]
-        fecha = f'{fecha[4:]}-{fecha[0:2]}-{fecha[2:4]}'
+        #fecha = fecha[4:]+"-"+fecha[0:2]+"-"+fecha[2:4]
+        fecha = (f'{fecha[4:]}-{fecha[0:2]}-{fecha[2:4]}')
         with open(archivo, 'r', encoding='UTF-8') as f_read:
             n_lineas = f_read.readlines()
-            with open(f'/media/edilberto/Almacenamiento/Archivos/DataSets/Tesis/Datos_Procesados/Medidor_Campo_Electrico/{fecha}.csv', 'a', encoding='UTF-8') as f_write:
+            with open(f'F:/Archivos/DataSets/Tesis/Datos_Procesados/Medidor_Campo_Electrico/{fecha}.csv', 'a', encoding='UTF-8') as f_write:
                 f_write.write('Fecha, Polaridad, NivelCE, FalloRotor\n')
                 for linea in n_lineas:
                     linea_n = linea.replace(',0',',correcto').replace(',1',',fallo').replace('+', 'positivo,').replace('-', 'negativo,')
