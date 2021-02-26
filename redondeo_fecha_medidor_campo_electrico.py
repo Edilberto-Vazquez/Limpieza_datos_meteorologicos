@@ -18,7 +18,7 @@ def media_polaridad(archivo):
             fecha = archivo.iloc[n_linea, 0]
     return new_archivo
 
-directorio = glob.glob('F:/Archivos/DataSets/Tesis/Datos_Procesados/*.csv')
+directorio = glob.glob('F:/Archivos/DataSets/Tesis/Datos_Procesados/Medidor_Campo_Electrico/*.csv')
 new_archivo2 = pd.DataFrame()
 for n_archivo in directorio:
     archivo = pd.read_csv(n_archivo, sep=',', decimal='.' ,encoding='UTF-8')
@@ -28,4 +28,4 @@ for n_archivo in directorio:
     new_archivo = pd.concat([df_negativo,df_positivo], ignore_index = True,)
     new_archivo2 = pd.concat([new_archivo, new_archivo2], ignore_index = True,)
     print(n_archivo)
-new_archivo2.to_csv('F:/Archivos/DataSets/Tesis/Datos_Procesados/conjunto_campo_electrico.csv', sep=',', decimal='.', index=None, encoding='UTF-8')
+new_archivo2.to_csv('F:/Archivos/DataSets/Tesis/Datos_Procesados/Medidor_Campo_Electrico/conjunto_campo_electrico.csv', sep=',', decimal='.', index=None, encoding='UTF-8')
