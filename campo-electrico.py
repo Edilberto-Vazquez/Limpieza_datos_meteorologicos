@@ -47,7 +47,7 @@ if __name__ == "__main__":
     #en max_workers se pone el numero de procesadors logicos de la CPU
     with ProcessPoolExecutor(max_workers=8) as executor:
         executor.map(campo_electrico_promedio, archivos_mc)
-    #se unen todos los archivos en uno solo con la funicon "archivos_campo_electrico_unidos" (opcional)
+    #se unen todos los archivos en uno solo con la funcion "archivos_campo_electrico_unidos" (opcional)
     archivos_mcp = glob.glob('F:/DataSets/Tesis/Datos_Procesados/Medidor_Campo_Electrico/conjunto_procesado_como_texto/*.csv')
     archivos_campo_electrico_unidos(archivos_mcp)
     #se imprime el tiempo de ejecucion del programa en segundos
